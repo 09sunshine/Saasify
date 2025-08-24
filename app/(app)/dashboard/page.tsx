@@ -1,3 +1,5 @@
+'use client'
+
 import { StatCard } from "@/components/dashboard/stat-card"
 import { RecentActivity } from "@/components/dashboard/recent-activity"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
