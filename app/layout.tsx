@@ -5,6 +5,12 @@ import { GeistMono } from "geist/font/mono"
 import { Providers } from "@/app/providers"
 import { Toaster } from "@/components/ui/toaster"
 import "./globals.css"
+import {
+  ClerkProvider
+} from '@clerk/nextjs'
+import { SessionProvider } from "next-auth/react"
+
+
 
 export const metadata: Metadata = {
   title: "SaaSify - Launch faster with a beautiful SaaS starter",
@@ -18,6 +24,25 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
+    <ClerkProvider 
+     appearance={{
+      layout: {
+        logoImageUrl: '/icons/logo.svg',
+        logoPlacement: 'inside',
+        socialButtonsVariant: 'auto',
+        socialButtonsPlacement: 'top',
+      },
+      variables: {
+        colorPrimary: '#0E78F9',
+        colorText : '#fff',
+        colorBackground : '#1c1f2e',
+        colorInputBackground : '#252a41',
+        colorInputText : '#fff',
+
+        
+      }
+     }}
+    >
     <html lang="en" suppressHydrationWarning>
       <head>
         <style>{`
@@ -35,5 +60,6 @@ html {
         </Providers>
       </body>
     </html>
+    </ClerkProvider>
   )
 }
